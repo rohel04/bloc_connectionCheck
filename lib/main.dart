@@ -35,13 +35,17 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(title: Text('Connectivity check')),
       body: Center(
         child: BlocListener<InternetBloc, InternetState>(
-          listener: (context,state){
-            if(state is InternetGainedState)
-              {
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Internet Connected'),backgroundColor: Colors.green));
-              }
-            else if(state is InternetLostState){
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Connection lost'),backgroundColor: Colors.red,));
+          listener: (context, state) {
+            if (state is InternetGainedState) {
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                content: Text(state.status),
+                backgroundColor: Colors.green,
+              ));
+            } else if (state is InternetLostState) {
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                content: Text(state.status),
+                backgroundColor: Colors.red,
+              ));
             }
           },
           child: Text('Hello'),
