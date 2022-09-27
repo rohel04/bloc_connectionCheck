@@ -38,12 +38,12 @@ class MyHomePage extends StatelessWidget {
           listener: (context, state) {
             if (state is InternetGainedState) {
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                content: Text(state.status),
+                content: Text(state.Gainedstatus),
                 backgroundColor: Colors.green,
               ));
             } else if (state is InternetLostState) {
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                content: Text(state.status),
+                content: Text(state.Loststatus),
                 backgroundColor: Colors.red,
               ));
             }
